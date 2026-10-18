@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#7C2F33">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mayank &amp; Muskan — Other Guests' Invitation (20 November 2026)">
-<meta property="og:description" content="With the blessings of Shri Ganesh and our families, we joyfully invite you to celebrate our pre-wedding ceremonies.">
+<meta property="og:title" content="Mayank &amp; Muskan - 20 November 2026">
+<meta property="og:description" content="With the blessings of Shri Ganesh, Rathore family is delighted to invite you to the wedding.">
 <!-- For the WhatsApp/Facebook preview image, replace this with your full URL once deployed,
      e.g. https://your-site.netlify.app/preview.jpg -->
 <meta property="og:image" content="preview.jpg">
@@ -3524,12 +3524,21 @@ try{
 /* ============================================================
    SHARE
    ============================================================ */
-document.getElementById("share").addEventListener("click", async () => {
-  const data = { title:`${CONFIG.couple.a} & ${CONFIG.couple.b}`,
-    text:`You're invited to the wedding of ${CONFIG.couple.a} & ${CONFIG.couple.b} — ${CONFIG.date.day} ${CONFIG.date.month} ${CONFIG.date.year}`,
-    url: location.href };
-  if(navigator.share){ try{ await navigator.share(data); return; }catch(_){ } }
-  open(`https://wa.me/?text=${encodeURIComponent(data.text + " " + data.url)}`, "_blank", "noopener");
+document.getElementById("share").addEventListener("click", () => {
+  const text = `Namaste \u{1F64F}
+
+With the blessings of Shri Ganesh \u{1FA94}, the Rathore Family is delighted to invite you to the wedding of our beloved son Mayank with Muskan (Shivangi) on 20 November 2026 at Krati Resort, Bareilly \u{1F4CD}
+
+Please tap the envelope on our invite below to see the details \u{1F48C}\u{1F447}
+
+We’d be honoured to have you with us. \u{1F338}`;
+  const bytes = new TextEncoder().encode(text + " " + location.href);
+  const encodedText = Array.from(bytes, byte => `%${byte.toString(16).toUpperCase().padStart(2, "0")}`).join("");
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const shareUrl = isMobile
+    ? `https://wa.me/?text=${encodedText}`
+    : `https://web.whatsapp.com/send?text=${encodedText}`;
+  open(shareUrl, "_blank", "noopener");
 });
 
 /* ============================================================
