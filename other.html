@@ -1857,6 +1857,10 @@ h2.display {
   box-shadow: 0 12px 30px -10px rgba(88,17,26,0.25), 0 0 14px rgba(196,160,82,0.25) !important;
   transition: transform 0.35s ease, box-shadow 0.35s ease !important;
 }
+.scratch-card.done {
+  border-color: #C4A052 !important;
+  box-shadow: none !important;
+}
 
 .scratch-value {
   color: #58111A !important;
@@ -2871,8 +2875,8 @@ h2.display {
 
       <div id="rsvp-done" role="status">
         <div class="tick">Thank you!</div>
-        <p class="sub" style="margin-bottom:14px">Your RSVP request was sent. You can also message the family on WhatsApp to make sure they see it.</p>
-        <button class="btn-solid" type="button" id="waSend">Send on WhatsApp</button>
+        <p class="sub" style="margin-bottom:14px">Your RSVP request was sent. Thank you for celebrating with us.</p>
+        <!-- <button class="btn-solid" type="button" id="waSend">Send on WhatsApp</button> -->
         <button class="btn-ghost" type="button" id="editRsvp" style="margin-top:14px">Edit my answer</button>
       </div>
     </div>
@@ -2948,34 +2952,18 @@ const CONFIG = {
   rsvpEndpoint: "https://script.google.com/macros/s/AKfycbzeQ6vENrD1Oc3HG_65KDM8YokwfrQ5r8ERwL4raRinXSXSP089KmRQr5VgjeiRIIh4/exec",
 
   musicFiles: [
-    "music.mp3",
-    "assets/music.mp3",
+    "song1.mp3",
+    "assets/song2.mp3",
     "_Meta_Tere_Nal_Hi_Rehna_Ji_Jogi_Sad_Hindi_Ringtone_(by Fringster.com).mp3",
     "song.mp3"
   ],
-  autoplayOnOpen: false
+  autoplayOnOpen: true
 };
 
 /* ============================================================
    EVENTS CONFIGURATION — OTHER GUESTS
    ============================================================ */
 const EVENTS = [
-  {
-    key: "carnival",
-    name: "Wedding Carnival",
-    dow: "Friday",
-    d: "20",
-    m: "Nov 2026",
-    time: "12:00 Noon onwards",
-    short: "Nov 20 · 12:00 PM",
-    quote: "A vibrant afternoon of games, food stalls, and laughter!",
-    dress: "Colorful Chic / Breezy Daywear",
-    dressNote: "",
-    swatch: [],
-    venue: "Krati Resort, Pilibhit Road, Near Airport, Bareilly",
-    map: "https://www.google.com/maps/search/?api=1&query=Krati+Resort+Pilibhit+Road+Near+Airport+Bareilly",
-    img: "assets/carnival.jpg"
-  },
   {
     key: "ghurchadi",
     name: "Ghurchadi",
@@ -2990,7 +2978,7 @@ const EVENTS = [
     swatch: [],
     venue: "Krati Resort, Pilibhit Road, Near Airport, Bareilly",
     map: "https://www.google.com/maps/search/?api=1&query=Krati+Resort+Pilibhit+Road+Near+Airport+Bareilly",
-    img: "assets/ghurchadi.jpg"
+    img: "assets/Baarat1.jpg"
   },
   {
     key: "baraat",
@@ -3006,7 +2994,7 @@ const EVENTS = [
     swatch: [],
     venue: "Krati Resort, Pilibhit Road, Near Airport, Bareilly",
     map: "https://www.google.com/maps/search/?api=1&query=Krati+Resort+Pilibhit+Road+Near+Airport+Bareilly",
-    img: "assets/wedding.jpg"
+    img: "assets/wedding1.jpeg"
   }
 ];
 
@@ -3457,18 +3445,6 @@ function collect(){
     advice: document.getElementById("advice") ? document.getElementById("advice").value.trim() : ""
   };
 }
-function message(r){
-  const L = [`RSVP for ${CONFIG.couple.a} & ${CONFIG.couple.b}`, `Name: ${r.name||"—"}`, `Phone: ${r.phone}`,
-    `Attending: ${r.attending === "yes" ? "Yes, joyfully!" : "Sadly cannot make it"}`];
-  if(r.attending === "yes"){
-    L.push(`Guests: ${r.party}`, `Events: ${r.events.join(", ") || "—"}`);
-    if(r.song) L.push(`Song request: ${r.song}`);
-    L.push(`Dietary: ${r.diet}`);
-  }
-  if(r.advice) L.push(`Advice: ${r.advice}`);
-  return L.join("\n");
-}
-
 form.addEventListener("submit", async e => {
   e.preventDefault();
   const nameEl = document.getElementById("guestName");
@@ -3496,7 +3472,7 @@ form.addEventListener("submit", async e => {
     if(attending === "yes") confetti();
   }catch(error){
     console.error("RSVP submission failed:", error);
-    rsvpError.textContent = "We couldn't submit your RSVP. Please try again or send it to the family on WhatsApp.";
+    rsvpError.textContent = "We couldn't submit your RSVP. Please try again.";
     rsvpError.hidden = false;
   }finally{
     rsvpSubmit.disabled = false;
@@ -3504,11 +3480,6 @@ form.addEventListener("submit", async e => {
   }
 });
 
-document.getElementById("waSend").addEventListener("click", () => {
-  const r = collect();
-  const base = CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}?text=` : `https://wa.me/?text=`;
-  open(base + encodeURIComponent(message(r)), "_blank", "noopener");
-});
 document.getElementById("editRsvp").addEventListener("click", () => {
   doneBox.classList.remove("show"); form.style.display = "";
 });

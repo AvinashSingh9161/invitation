@@ -25,7 +25,7 @@ A bespoke, royal Indian wedding digital invitation website featuring an interact
    - "Together with their families" royal typography honoring both families.
 
 3. **🗓️ Invitations by guest group**:
-   - **Bride**: Haldi (18 Nov 2026, 12:00 PM), Mehendi (5:00 PM), and After Party (7:00 PM) at Lodheswar Marriage Lawn, Lucknow; plus Wedding Carnival, Ghurchadi, and Departure of Baraat on 20 Nov at Krati Resort, Bareilly.
+   - **Bride**: Haldi (18 Nov 2026, 12:00 PM), followed by Mehendi (5:00 PM) and After Party (7:00 PM) together on one invitation entry at Lodheswar Marriage Lawn, Lucknow; plus Wedding Carnival, Ghurchadi, and Departure of Baraat on 20 Nov at Krati Resort, Bareilly.
    - **Groom**: Full itinerary for 19–20 November 2026.
    - **Other guests**: Wedding Carnival (20 Nov, 12:00 PM), Ghurchadi (5:00 PM), and Departure of Baraat (7:00 PM).
 

@@ -1857,6 +1857,10 @@ h2.display {
   box-shadow: 0 12px 30px -10px rgba(88,17,26,0.25), 0 0 14px rgba(196,160,82,0.25) !important;
   transition: transform 0.35s ease, box-shadow 0.35s ease !important;
 }
+.scratch-card.done {
+  border-color: #C4A052 !important;
+  box-shadow: none !important;
+}
 
 .scratch-value {
   color: #58111A !important;
@@ -2680,6 +2684,7 @@ h2.display {
       <div class="pocket-gold-border"></div>
       <div class="pocket-text">
         <span class="pk-top">॥ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ॥</span>
+        <span class="pk-top">॥ निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</span>
         <span class="pk-mid">WEDDING INVITATION</span>
         <span class="pk-bot">MAYANK &amp; MUSKAN</span>
         <span class="pk-date">20 NOVEMBER 2026</span>
@@ -2766,7 +2771,7 @@ h2.display {
       </div>
       <div class="scratch-col">
         <div class="scratch-label">Day</div>
-        <div class="scratch-card" data-scratch><div class="scratch-value">18</div><canvas></canvas></div>
+        <div class="scratch-card" data-scratch><div class="scratch-value">20</div><canvas></canvas></div>
         <div class="scratch-hint">↑ Scratch</div>
       </div>
       <div class="scratch-col">
@@ -2829,12 +2834,12 @@ h2.display {
           <div class="stack-fields">
             <div>
               <label class="lab" for="guestName">Your name</label>
-              <input type="text" id="guestName" name="guestName" autocomplete="name" placeholder="Aditi Sharma" required>
+              <input type="text" id="guestName" name="guestName" autocomplete="name" required>
             </div>
             <div>
               <label class="lab" for="guestPhone">Phone number</label>
               <div class="row2">
-                <select id="guestCode" name="guestCode" aria-label="Country code"></select>
+                <input type="text" id="guestCode" value="+91" aria-label="Country calling code" readonly>
                 <input type="tel" id="guestPhone" name="guestPhone" autocomplete="tel" placeholder="98765 43210">
               </div>
             </div>
@@ -2871,8 +2876,8 @@ h2.display {
 
       <div id="rsvp-done" role="status">
         <div class="tick">Thank you!</div>
-        <p class="sub" style="margin-bottom:14px">Your RSVP request was sent. You can also message the family on WhatsApp to make sure they see it.</p>
-        <button class="btn-solid" type="button" id="waSend">Send on WhatsApp</button>
+        <p class="sub" style="margin-bottom:14px">Your RSVP request was sent. Thank you for celebrating with us.</p>
+        <!-- <button class="btn-solid" type="button" id="waSend">Send on WhatsApp</button> -->
         <button class="btn-ghost" type="button" id="editRsvp" style="margin-top:14px">Edit my answer</button>
       </div>
     </div>
@@ -2948,12 +2953,12 @@ const CONFIG = {
   rsvpEndpoint: "https://script.google.com/macros/s/AKfycbzeQ6vENrD1Oc3HG_65KDM8YokwfrQ5r8ERwL4raRinXSXSP089KmRQr5VgjeiRIIh4/exec",
 
   musicFiles: [
-    "music.mp3",
-    "assets/music.mp3",
+    "song1.mp3",
+    "assets/song2.mp3",
     "_Meta_Tere_Nal_Hi_Rehna_Ji_Jogi_Sad_Hindi_Ringtone_(by Fringster.com).mp3",
     "song.mp3"
   ],
-  autoplayOnOpen: false
+  autoplayOnOpen: true
 };
 
 /* ============================================================
@@ -2977,36 +2982,22 @@ const EVENTS = [
     img: "assets/haldi.jpg"
   },
   {
-    key: "mehendi",
-    name: "Mehendi",
+    key: "mehendi-afterparty",
+    name: "Mehendi & After Party",
     dow: "Wednesday",
     d: "18",
     m: "Nov 2026",
-    time: "5:00 PM",
-    short: "Nov 18 · 5:00 PM",
-    quote: "An afternoon of beautiful mehendi, family, and festive moments.",
+    time: ["Mehendi: 5:00 PM", "After Party: 7:00 PM"],
+    short: "Nov 18 · 5:00 PM & 7:00 PM",
+    quote: "Join us for beautiful mehendi, family, and festive celebrations into the evening.",
     dress: "",
     dressNote: "",
     swatch: [],
     venue: "Lodheswar Marriage Lawn, Triveni Nagar, Lucknow",
     map: "https://maps.app.goo.gl/6hoA5v5M8aShJ4L3A",
-    art: "sangeet"
-  },
-  {
-    key: "afterparty",
-    name: "After Party",
-    dow: "Wednesday",
-    d: "18",
-    m: "Nov 2026",
-    time: "7:00 PM",
-    short: "Nov 18 · 7:00 PM",
-    quote: "Let's celebrate together and make the evening unforgettable.",
-    dress: "",
-    dressNote: "",
-    swatch: [],
-    venue: "Lodheswar Marriage Lawn, Triveni Nagar, Lucknow",
-    map: "https://maps.app.goo.gl/6hoA5v5M8aShJ4L3A",
-    art: "afterparty"
+    art: "sangeet",
+    rsvpEvents: ["Mehendi", "After Party"],
+    img: "assets/mehendi.jpeg"
   },
   {
     key: "carnival",
@@ -3038,7 +3029,7 @@ const EVENTS = [
     swatch: [],
     venue: "Krati Resort, Pilibhit Road, Near Airport, Bareilly",
     map: "https://www.google.com/maps/search/?api=1&query=Krati+Resort+Pilibhit+Road+Near+Airport+Bareilly",
-    img: "assets/ghurchadi.jpg"
+    img: "assets/Baarat1.jpg"
   },
   {
     key: "baraat",
@@ -3054,7 +3045,7 @@ const EVENTS = [
     swatch: [],
     venue: "Krati Resort, Pilibhit Road, Near Airport, Bareilly",
     map: "https://www.google.com/maps/search/?api=1&query=Krati+Resort+Pilibhit+Road+Near+Airport+Bareilly",
-    img: "assets/wedding.jpg"
+    img: "assets/wedding1.jpeg"
   }
 ];
 
@@ -3101,7 +3092,7 @@ document.getElementById("eventList").innerHTML = EVENTS.map(e => `
     <div class="event-body">
       <h3 class="event-name">${e.name}</h3>
       <div class="when">${e.dow}<i></i><b>${e.d}</b><i></i>${e.m}</div>
-      <div class="time">⏰ ${e.time}</div>
+      <div class="time">⏰ ${Array.isArray(e.time) ? e.time.join("<br>") : e.time}</div>
       <p class="quote">&ldquo;${e.quote}&rdquo;</p>
       ${e.dress ? `<div class="dress">
         <div class="dl">${e.swatch && e.swatch.length ? 'Dress code &amp; Palette' : 'Dress Code'}</div>
@@ -3119,9 +3110,6 @@ document.getElementById("evlist").innerHTML = EVENTS.map(e => `
     <input type="checkbox" name="events" value="${e.name}" checked>
     <span><span class="en">${e.name}</span><br><span class="ed">${e.short}</span></span>
   </label>`).join("");
-
-const CODES = [["🇮🇳 India","+91"],["🇺🇸 USA","+1"],["🇬🇧 UK","+44"],["🇦🇪 UAE","+971"],["🇦🇺 Australia","+61"],["🇨🇦 Canada","+1"],["🇸🇬 Singapore","+65"],["🇳🇿 New Zealand","+64"],["🇩🇪 Germany","+49"],["🇫🇷 France","+33"],["🇿🇦 South Africa","+27"],["🇲🇾 Malaysia","+60"],["🇶🇦 Qatar","+974"],["🇸🇦 Saudi Arabia","+966"],["🇯🇵 Japan","+81"],["🌍 Other","+"]];
-document.getElementById("guestCode").innerHTML = CODES.map(([n,c],i)=>`<option value="${c}"${i===0?" selected":""}>${c}</option>`).join("");
 
 /* ============================================================
    ENVELOPE
@@ -3495,7 +3483,10 @@ document.getElementById("attendChoice").addEventListener("click", e => {
 });
 
 function collect(){
-  const events = [...document.querySelectorAll('input[name=events]:checked')].map(i=>i.value);
+  const selectedEvents = [...document.querySelectorAll('input[name=events]:checked')].map(i=>i.value);
+  const events = EVENTS
+    .filter(event => selectedEvents.includes(event.name))
+    .flatMap(event => event.rsvpEvents || [event.name]);
   return {
     name: document.getElementById("guestName").value.trim(),
     phone: document.getElementById("guestCode").value + " " + document.getElementById("guestPhone").value.trim(),
@@ -3505,18 +3496,6 @@ function collect(){
     advice: document.getElementById("advice") ? document.getElementById("advice").value.trim() : ""
   };
 }
-function message(r){
-  const L = [`RSVP for ${CONFIG.couple.a} & ${CONFIG.couple.b}`, `Name: ${r.name||"—"}`, `Phone: ${r.phone}`,
-    `Attending: ${r.attending === "yes" ? "Yes, joyfully!" : "Sadly cannot make it"}`];
-  if(r.attending === "yes"){
-    L.push(`Guests: ${r.party}`, `Events: ${r.events.join(", ") || "—"}`);
-    if(r.song) L.push(`Song request: ${r.song}`);
-    L.push(`Dietary: ${r.diet}`);
-  }
-  if(r.advice) L.push(`Advice: ${r.advice}`);
-  return L.join("\n");
-}
-
 form.addEventListener("submit", async e => {
   e.preventDefault();
   const nameEl = document.getElementById("guestName");
@@ -3544,7 +3523,7 @@ form.addEventListener("submit", async e => {
     if(attending === "yes") confetti();
   }catch(error){
     console.error("RSVP submission failed:", error);
-    rsvpError.textContent = "We couldn't submit your RSVP. Please try again or send it to the family on WhatsApp.";
+    rsvpError.textContent = "We couldn't submit your RSVP. Please try again.";
     rsvpError.hidden = false;
   }finally{
     rsvpSubmit.disabled = false;
@@ -3552,11 +3531,6 @@ form.addEventListener("submit", async e => {
   }
 });
 
-document.getElementById("waSend").addEventListener("click", () => {
-  const r = collect();
-  const base = CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}?text=` : `https://wa.me/?text=`;
-  open(base + encodeURIComponent(message(r)), "_blank", "noopener");
-});
 document.getElementById("editRsvp").addEventListener("click", () => {
   doneBox.classList.remove("show"); form.style.display = "";
 });
