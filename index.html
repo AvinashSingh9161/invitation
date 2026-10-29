@@ -1204,7 +1204,8 @@ body {
   position: absolute !important;
   left: 0 !important;
   right: 0 !important;
-  bottom: 6% !important;
+  bottom: clamp(14px, 2.5vh, 24px) !important;
+  padding: 10px 24px !important;
   z-index: 20 !important;
   text-align: center !important;
   font-family: "Cinzel Decorative", "Prata", serif !important;
@@ -1236,13 +1237,35 @@ body {
   width: min(86vw, 350px) !important;
   aspect-ratio: 1 / 1.45 !important;
   transform-style: preserve-3d !important;
-  transform: scale(1.15) translateY(3%) rotateX(8deg) !important;
+  transform: scale(1.06) translateY(-26px) rotateX(8deg) !important;
   transition: transform 1.25s cubic-bezier(0.25, 0.85, 0.25, 1) !important;
   filter: drop-shadow(0 30px 55px rgba(0,0,0,0.9)) drop-shadow(0 0 25px rgba(88,17,26,0.35)) !important;
 }
 
+@media (max-height: 750px) {
+  .shahi-lifafa {
+    width: min(82vw, 310px) !important;
+    transform: scale(1.02) translateY(-32px) rotateX(8deg) !important;
+  }
+  .env-tap {
+    bottom: 12px !important;
+    padding: 8px 20px !important;
+  }
+}
+@media (max-height: 650px) {
+  .shahi-lifafa {
+    width: min(78vw, 280px) !important;
+    transform: scale(0.96) translateY(-36px) rotateX(8deg) !important;
+  }
+  .env-tap {
+    bottom: 8px !important;
+    padding: 6px 16px !important;
+    font-size: 11px !important;
+  }
+}
+
 #envelope.go .shahi-lifafa {
-  transform: scale(1) translateY(7%) rotateX(10deg) !important;
+  transform: scale(1) translateY(-10px) rotateX(10deg) !important;
 }
 
 #envelope.zoom .shahi-lifafa {
