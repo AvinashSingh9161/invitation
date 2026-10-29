@@ -1,42 +1,64 @@
 # 💍 Royal Shahi Lifafa Wedding Invitation Website
-### *Mayank & Muskan | 20 November 2026*
+### *Dhananjay & Upasana | Varanasi (Kashi) | 25 Nov – 02 Dec 2026*
 
-A bespoke, royal Indian wedding digital invitation website featuring an interactive **Shahi Lifafa (Royal Gold & Crimson Royal Envelope)** opening animation, traditional mangal shehnai background music, authentic event galleries, interactive map directions to Krati Resort, and an interactive scratch card.
-
----
-
-## 🌟 Live Demo
-- **Live Website**: [https://invitation-two-lac.vercel.app](https://invitation-two-lac.vercel.app)
-- **GitHub Repository**: [https://github.com/AvinashSingh9161/invitation](https://github.com/AvinashSingh9161/invitation)
+A bespoke, royal Indian wedding digital invitation website featuring an interactive **Shahi Lifafa (Royal Gold & Crimson Envelope)** opening animation, traditional mangal shehnai background music, authentic event itinerary with Varanasi Ghats aesthetic, live interactive maps, and interactive scratch card save-the-date.
 
 ---
 
-## 📜 Key Features
+## 🌟 Live Demo & Details
+- **Live Website**: [https://dhananjay-upasana-sangam.vercel.app](https://dhananjay-upasana-sangam.vercel.app)
+- **Couple**: Dhananjay & Upasana
+- **Theme**: Varanasi (Kashi) — Baba Vishwanath Blessings & Ganga Ghats
+- **Wedding Date**: Wednesday, 2nd December 2026 (06:00 PM onwards)
+- **Main Venue**: Kalawati Garden, Chitaipur, Varanasi
+- **Live Local Preview**: Port 3000
 
-1. **💌 Shahi Lifafa (Royal Wax Seal Envelope)**:
-   - Authentic 3D wax seal flap opening with realistic gold-embossed trim.
-   - Smooth, fluid sliding transition of the royal invitation card.
-   - Background mangal music (Shehnai) autoplay trigger upon opening.
+---
 
-2. **🕉️ Traditional & Cultural Touch**:
-   - Lord Ganesha shlokas & auspicious blessings (*वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ*).
-   - "Together with their families" royal typography honoring both families.
+## 📜 Complete Itinerary & Festivities
 
-3. **🗓️ Wedding Celebrations (Events Guide)**:
-   - **Carnival**: 19 Nov 2026 (12:00 PM onwards)
-   - **Haldi Ceremony**: 19 Nov 2026 (04:00 PM onwards) — *Dress Palette: White, Blue & Pink*
-   - **Sangeet Night**: 19 Nov 2026 (08:00 PM onwards) — *Dress Code: Indo Western*
-   - **Departure of Baraat**: 20 Nov 2026 (07:00 PM onwards)
-   - **Ghurchadi**: 20 Nov 2026 (05:00 PM onwards)
-   - **Wedding Ceremony (Saat Phere)**: 20 Nov 2026 (10:00 PM onwards)
+1. **🪔 Tilak Ceremony**:
+   - **Date**: Wednesday, 25th November 2026 (04:00 PM onwards)
+   - **Venue**: Rampur, Kashipur, Varanasi
+   - **Theme**: Auspicious beginning with Vedic rituals & blessings of elders.
 
-4. **📍 Interactive Venue & Maps**:
-   - Venue: **Krati Resort, Bareilly**
-   - Direct Google Maps navigation links for all celebrations.
+2. **🌼 Haldi Ceremony**:
+   - **Date**: Monday, 30th November 2026 (Morning onwards)
+   - **Venue**: Rampur, Kashipur, Varanasi
+   - **Theme**: Sunshine, laughter, turmeric glow & Banarasi dhol beats.
 
-5. **✨ Interactive Scratch Card & RSVP**:
-   - Scratch card revealing auspicious blessings on 20 November 2026.
-   - Quick one-tap calendar addition (`.ics` / Google Calendar).
+3. **🌿 Mehndi Ceremony**:
+   - **Date**: Tuesday, 1st December 2026 (Evening onwards)
+   - **Venue**: Rampur, Kashipur, Varanasi
+   - **Theme**: Intricate Banarasi henna, folk melodies & festive green attire.
+
+4. **🔱 Shubh Vivah (Saat Phere & Baraat)**:
+   - **Date**: Wednesday, 2nd December 2026 (06:00 PM onwards)
+   - **Venue**: Kalawati Garden, Chitaipur, Varanasi
+   - **Theme**: Grand royal wedding union under the divine blessings of Kashi Vishwanath & Maa Ganga.
+
+---
+
+## ✨ Key Features
+
+1. **💌 Interactive Shahi Lifafa**:
+   - 3D wax seal flap opening with realistic gold-embossed trim and "D & U" royal monogram.
+   - Smooth rising transition of the royal invitation card out of the pocket.
+   - Ambient sparkle dust and rose + marigold petal shower on card reveal.
+
+2. **🕉️ Authentic Varanasi Cultural Touch**:
+   - Lord Ganesha and Kashi Vishwanath sacred invocations (*॥ श्री गणेशाय नमः ॥*, *॥ नमः पार्वती पतये हर हर महादेव ॥*).
+   - High-resolution imagery featuring Subah-e-Banaras Ganga Ghats and sacred rituals.
+
+3. **✨ Interactive Scratch Cards**:
+   - Scratch-off cards for Month (`Dec`), Day (`02`), and Year (`2026`).
+   - Live real-time countdown timer to 2nd December 2026 at Kalawati Garden.
+
+4. **📍 Interactive Google Maps Navigation**:
+   - Direct Google Maps routing to Rampur, Kashipur and Kalawati Garden, Chitaipur, Varanasi.
+
+5. **💌 Seamless RSVP**:
+   - Guest attendance form with direct WhatsApp dispatch.
 
 ---
 
@@ -52,8 +74,3 @@ A bespoke, royal Indian wedding digital invitation website featuring an interact
 **Avinash Singh**
 - **Instagram**: [@avi_musician](https://www.instagram.com/avi_musician/)
 - **WhatsApp**: [+91 9161985707](https://wa.me/919161985707?text=Hello%20Avinash,%20I%20saw%20your%20wedding%20invitation%20website%20and%20would%20like%20to%20create%20one!)
-
----
-
-## 📄 License
-This project is open-source and available for viewing and inspiration.
