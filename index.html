@@ -2816,66 +2816,6 @@ h2.display {
     <div id="eventList"></div>
   </section>
 
-  <!-- RSVP -->
-  <section id="rsvp">
-    <p class="eyebrow">Join the celebration</p>
-    <h2 class="display">RSVP</h2>
-    <p class="sub">Kindly let us know if you can make it — your presence will make this celebration whole.</p>
-
-    <div class="card">
-      <form id="rsvpForm" novalidate>
-        <div class="fieldset">
-          <div class="legend">Your details</div>
-          <div class="stack-fields">
-            <div>
-              <label class="lab" for="guestName">Your name</label>
-              <input type="text" id="guestName" name="guestName" autocomplete="name" placeholder="Aditi Sharma" required>
-            </div>
-            <div>
-              <label class="lab" for="guestPhone">Phone number</label>
-              <div class="row2">
-                <select id="guestCode" name="guestCode" aria-label="Country code"></select>
-                <input type="tel" id="guestPhone" name="guestPhone" autocomplete="tel" placeholder="98765 43210">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="fieldset">
-          <div class="legend">Will you join us?</div>
-          <div class="choice" id="attendChoice">
-            <button type="button" data-val="yes" aria-pressed="true">Joyfully accept 🎉</button>
-            <button type="button" data-val="no" aria-pressed="false">Regretfully decline</button>
-          </div>
-        </div>
-
-        <div class="fieldset" id="partyWrap">
-          <div class="legend">Party size</div>
-          <select id="partySize" name="partySize" aria-label="Party size">
-            <option value="1">1 (Just me)</option>
-            <option value="2">2 guests</option>
-            <option value="3">3 guests</option>
-            <option value="4">4 guests</option>
-            <option value="5">5 guests</option>
-          </select>
-        </div>
-
-        <div class="fieldset" id="eventsWrap">
-          <div class="legend">Events you'll attend</div>
-          <div class="evlist" id="evlist"></div>
-        </div>
-
-        <button class="btn-solid" type="submit">Send RSVP</button>
-      </form>
-
-      <div id="rsvp-done" role="status">
-        <div class="tick">Thank you!</div>
-        <p class="sub" style="margin-bottom:14px">Your RSVP is saved on this device. Tap below to send it to the family on WhatsApp.</p>
-        <button class="btn-solid" type="button" id="waSend">Send on WhatsApp</button>
-        <button class="btn-ghost" type="button" id="editRsvp" style="margin-top:14px">Edit my answer</button>
-      </div>
-    </div>
-  </section>
 
   <!-- CLOSING -->
   <section id="closing">
@@ -2919,7 +2859,7 @@ h2.display {
         <div class="creator-features">
           <span>✧ Custom Themes</span>
           <span>✧ Shahi Lifafa &amp; Music</span>
-          <span>✧ Live RSVP &amp; Maps</span>
+          <span>✧ Live Itinerary &amp; Maps</span>
         </div>
 
         <div class="creator-footer-note">Crafted by Avinash Singh</div>
@@ -3060,15 +3000,6 @@ document.getElementById("eventList").innerHTML = EVENTS.map(e => `
       <a class="btn-ghost" href="${e.map || CONFIG.venueMap}" target="_blank" rel="noopener">View on Map ↗</a>
     </div>
   </article>`).join("");
-
-document.getElementById("evlist").innerHTML = EVENTS.map(e => `
-  <label class="evpick">
-    <input type="checkbox" name="events" value="${e.name}" checked>
-    <span><span class="en">${e.name}</span><br><span class="ed">${e.short}</span></span>
-  </label>`).join("");
-
-const CODES = [["🇮🇳 India","+91"],["🇺🇸 USA","+1"],["🇬🇧 UK","+44"],["🇦🇪 UAE","+971"],["🇦🇺 Australia","+61"],["🇨🇦 Canada","+1"],["🇸🇬 Singapore","+65"],["🇳🇿 New Zealand","+64"],["🇩🇪 Germany","+49"],["🇫🇷 France","+33"],["🇿🇦 South Africa","+27"],["🇲🇾 Malaysia","+60"],["🇶🇦 Qatar","+974"],["🇸🇦 Saudi Arabia","+966"],["🇯🇵 Japan","+81"],["🌍 Other","+"]];
-document.getElementById("guestCode").innerHTML = CODES.map(([n,c],i)=>`<option value="${c}"${i===0?" selected":""}>${c}</option>`).join("");
 
 /* ============================================================
    ENVELOPE
@@ -3442,75 +3373,6 @@ document.getElementById("scrollOn").addEventListener("click", () => {
   const target = document.getElementById("events");
   if(target) target.scrollIntoView({behavior:"smooth", block:"start"});
 });
-
-/* ============================================================
-   RSVP
-   ============================================================ */
-const form = document.getElementById("rsvpForm");
-const doneBox = document.getElementById("rsvp-done");
-let attending = "yes";
-
-document.getElementById("attendChoice").addEventListener("click", e => {
-  const b = e.target.closest("button"); if(!b) return;
-  attending = b.dataset.val;
-  document.querySelectorAll("#attendChoice button").forEach(x =>
-    x.setAttribute("aria-pressed", String(x === b)));
-  const hide = attending === "no";
-  document.getElementById("partyWrap").hidden = hide;
-  document.getElementById("eventsWrap").hidden = hide;
-});
-
-function collect(){
-  const events = [...document.querySelectorAll('input[name=events]:checked')].map(i=>i.value);
-  return {
-    name: document.getElementById("guestName").value.trim(),
-    phone: document.getElementById("guestCode").value + " " + document.getElementById("guestPhone").value.trim(),
-    attending, party: document.getElementById("partySize").value,
-    events, song: document.getElementById("song") ? document.getElementById("song").value.trim() : "",
-    diet: document.getElementById("diet") ? document.getElementById("diet").value : "",
-    advice: document.getElementById("advice") ? document.getElementById("advice").value.trim() : ""
-  };
-}
-function message(r){
-  const L = [`RSVP for ${CONFIG.couple.a} & ${CONFIG.couple.b}`, `Name: ${r.name||"—"}`, `Phone: ${r.phone}`,
-    `Attending: ${r.attending === "yes" ? "Yes, joyfully!" : "Sadly cannot make it"}`];
-  if(r.attending === "yes"){
-    L.push(`Guests: ${r.party}`, `Events: ${r.events.join(", ") || "—"}`);
-    if(r.song) L.push(`Song request: ${r.song}`);
-    L.push(`Dietary: ${r.diet}`);
-  }
-  if(r.advice) L.push(`Advice: ${r.advice}`);
-  return L.join("\n");
-}
-
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  const nameEl = document.getElementById("guestName");
-  if(!nameEl.value.trim()){ nameEl.focus(); nameEl.style.borderColor = "var(--rose-deep)"; return; }
-  const r = collect();
-  try{ localStorage.setItem("rsvp", JSON.stringify(r)); }catch(_){}
-  form.style.display = "none";
-  doneBox.classList.add("show");
-  doneBox.scrollIntoView({behavior:"smooth", block:"center"});
-  if(attending === "yes") confetti();
-});
-
-document.getElementById("waSend").addEventListener("click", () => {
-  const r = collect();
-  const base = CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}?text=` : `https://wa.me/?text=`;
-  open(base + encodeURIComponent(message(r)), "_blank", "noopener");
-});
-document.getElementById("editRsvp").addEventListener("click", () => {
-  doneBox.classList.remove("show"); form.style.display = "";
-});
-try{
-  const saved = JSON.parse(localStorage.getItem("rsvp") || "null");
-  if(saved){
-    document.getElementById("guestName").value = saved.name || "";
-    if(document.getElementById("advice")) document.getElementById("advice").value = saved.advice || "";
-    if(document.getElementById("song")) document.getElementById("song").value = saved.song || "";
-  }
-}catch(_){}
 
 /* ============================================================
    SHARE
